@@ -26,7 +26,7 @@ function Navbar() {
 
       
         <ul className="hidden md:flex space-x-6">
-          {["Home", "Categories", "Channels", "About" ,"Blog"].map((item) => (
+          {["Home", "Categories", "Channels", "About" ].map((item) => (
             <motion.li
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 100 }}
