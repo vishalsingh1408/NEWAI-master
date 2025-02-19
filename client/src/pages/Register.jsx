@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Button } from '@mantine/core';
 import { Mail, Lock, User } from 'lucide-react';
+import {useForm} from 'react-hook-form';
 
 const Register = () => {
+  const {register , handleSubmit} =useForm()
+  
+  const onSubmit =(data)=>{
+    console.log(data);
+    
+  }
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <motion.div
@@ -15,7 +22,7 @@ const Register = () => {
           Create an Account
         </h2>
 
-        <form  className="space-y-6">
+        <form  className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="relative flex items-center pb-2 border-b border-gray-300">
             <User className="text-gray-400 mr-2" size={20} />
             <input
@@ -24,6 +31,7 @@ const Register = () => {
               placeholder="Full Name"
               required
               className="w-full bg-transparent focus:outline-none border-none"
+              {...register('name')}
             />
           </div>
 
@@ -36,6 +44,7 @@ const Register = () => {
               placeholder="Email Address"
               required
               className="w-full bg-transparent focus:outline-none border-none"
+              {...register('email')}
             />
           </div>
 
@@ -47,6 +56,7 @@ const Register = () => {
               placeholder="Password"
               required
               className="w-full bg-transparent focus:outline-none border-none"
+              {...register('password')}
             />
           </div>
           <div className="relative flex items-center pb-2 border-b border-gray-300">
@@ -57,6 +67,7 @@ const Register = () => {
               placeholder="Confirm Password"
               required
               className="w-full bg-transparent focus:outline-none border-none"
+              {...register('confirmPassword')}
             />
           </div>
 

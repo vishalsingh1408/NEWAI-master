@@ -21,7 +21,9 @@ function Navbar() {
           transition={{ duration: 0.5 }}
           className="text-2xl font-semibold"
         >
+          <Link to={'/'}>
           NewsAI
+          </Link>
         </motion.h1>
 
       

@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import '@mantine/core/styles.css';
 import Preferences from './pages/preferences';
+import { fetchProduct } from './redux/slice/productSlice';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 function App() {
- 
+
+  const { loading, products } = useSelector((state) => state.product);
+
+  console.log(loading, products);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProduct())
+  }, [])
 
   return (
     <div>
       <Navbar />
-     
-      <Preferences />
+
+      
       <Routes>
+        <Route path="/" element={<Preferences />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
@@ -22,6 +34,8 @@ function App() {
 }
 
 export default App;
+
+
 
 // import React from 'react';
 

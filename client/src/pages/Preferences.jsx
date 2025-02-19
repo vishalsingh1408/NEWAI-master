@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ChevronUp  ,CircleCheckBig } from 'lucide-react';
+import { ChevronUp, CircleCheckBig } from 'lucide-react';
 import { Button } from '@mantine/core';
 import './preference.css'
 function Preferences() {
@@ -17,11 +17,11 @@ function Preferences() {
 
   const toggleCategory = (category) => {
     setSelectedCategory(
-      selectedCategory.includes(category)
+      selectedCategory.includes(category)   
         ? selectedCategory.filter((c) => c !== category)
         : [...selectedCategory, category]
     );
- 
+
   };
   return (
     <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
@@ -36,12 +36,12 @@ function Preferences() {
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            transition={{duration : .5}}
+            transition={{ duration: .5 }}
             onClick={() => toggleCategory(category)}
             className={` shadow-md rounded-xl flex justify-center items-center gap-4 text-center px-5 py-3 ${selectedCategory.includes(category) ? 'bg-blue-500 text-white' : 'bg-white text-black'}  `}
           >
             {selectedCategory.includes(category) && <CircleCheckBig />}
-            {category} 
+            {category}
           </motion.div>
         ))}
         <Button>Save Preferences</Button>
